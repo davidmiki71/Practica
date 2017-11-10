@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App3"
+             x:Class="App3.MainPage">
+    <StackLayout >
+        <Entry Text="{Binding NuevoFiltro}"/>
+        <Button BackgroundColor="#FFF988" Image="../../Images/iconSearch.png" Text="Filtrar" Command="{Binding FiltroCommand}" />
+
+        <ListView IsVisible="{Binding noTieneFiltro}" ItemsSource="{Binding listPersonList}">
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <TextCell Text="{Binding Nombre}" Detail="{Binding Descripcion}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView IsVisible="{Binding tieneFiltro}" ItemsSource="{Binding listPersonListFiltro}">
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <TextCell Text="{Binding Nombre}" Detail="{Binding Descripcion}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Entry  Text="{Binding NuevoIngreso}"/>
+        <Button BackgroundColor="#8FBDFF" Text="Agregar Persona" Command="{Binding AgregarPersonaCommand}" />
+    </StackLayout> 
+</ContentPage>
